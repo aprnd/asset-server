@@ -18,11 +18,13 @@ exports.init = function() {
   // Require our custom interface to Winston logger.
   var log = require('./modules/log');
 
-  // Setup HTTPS
-  var httpsOptions = {
-    key: fs.readFileSync(config.ssl.keyfile),
-    certificate: fs.readFileSync(config.ssl.certfile)
-  };
+  // Setup HTTPS if enabled
+  if(config.ssl) {
+    var httpsOptions = {
+      key: fs.readFileSync(config.ssl.keyfile),
+      certificate: fs.readFileSync(config.ssl.certfile)
+    };
+  }
 
   var winstonStream = {
       write: function(message, encoding){
@@ -88,19 +90,26 @@ exports.init = function() {
 
   }
 
-  // Start them up
-  var httpsServer = restify.createServer(httpsOptions);
-  var httpServer = restify.createServer();
+  /**
+   * Start the HTTP/HTTPS servers up
+   */
 
+  // HTTPS only if enabled
+  if(config.ssl) {
+    var httpsServer = restify.createServer(httpsOptions);
+    setupServer(httpsServer);
+
+    httpsServer.listen(config.httpsport, function() {
+      log.info('%s HTTPS listening at https://%s:%s', config.name, config.domain, config.httpsPort);
+    });
+  }
+
+  // HTTP always
+  var httpServer = restify.createServer();
   setupServer(httpServer);
-  setupServer(httpsServer);
 
   httpServer.listen(config.httpport, function() {
     log.info('%s HTTP listening at http://%s:%s', config.name, config.domain, config.httpPort);
-  });
-
-  httpsServer.listen(config.httpsport, function() {
-    log.info('%s HTTPS listening at https://%s:%s', config.name, config.domain, config.httpsPort);
   });
 
 };

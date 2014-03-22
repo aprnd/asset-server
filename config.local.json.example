@@ -15,6 +15,7 @@
       "burst": 10000,
       "rate": 5000
     },
-    "storagelocation": "./storage/"
+    "storagelocation": "./storage/",
+    ssl: false
   }
 }
