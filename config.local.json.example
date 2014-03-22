@@ -7,6 +7,7 @@
     "reservedsubdomains": ["local", "localhost", "test", "error", "www", "www2", "www3", "www4", "images", "img", "imgs", "cdn", "dev", "api", "mail", "daemon", "install", "settings", "setup", "root", "admin", "svn", "git", "hg", "mailman", "email", "ns", "logout", "login", "signup", "about", "info", "content", "static", "cnt"],
     "domain": "local.asset-server.com",
     "ssl": {
+      "enabled": false,
       "keyFile": "ssl/key.key",
       "certFile": "ssl/key.crt"
     },
@@ -15,7 +16,6 @@
       "burst": 10000,
       "rate": 5000
     },
-    "storagelocation": "./storage/",
-    ssl: false
+    "storagelocation": "./storage/"
   }
 }

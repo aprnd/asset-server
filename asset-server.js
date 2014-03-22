@@ -19,7 +19,7 @@ exports.init = function() {
   var log = require('./modules/log');
 
   // Setup HTTPS if enabled
-  if(config.ssl) {
+  if(config.ssl.enabled) {
     var httpsOptions = {
       key: fs.readFileSync(config.ssl.keyfile),
       certificate: fs.readFileSync(config.ssl.certfile)
@@ -95,12 +95,12 @@ exports.init = function() {
    */
 
   // HTTPS only if enabled
-  if(config.ssl) {
+  if(config.ssl.enabled) {
     var httpsServer = restify.createServer(httpsOptions);
     setupServer(httpsServer);
 
     httpsServer.listen(config.httpsport, function() {
-      log.info('%s HTTPS listening at https://%s:%s', config.name, config.domain, config.httpsPort);
+      log.info('%s HTTPS listening at https://%s:%s', config.name, config.domain, config.httpsport);
     });
   }
 
@@ -109,7 +109,7 @@ exports.init = function() {
   setupServer(httpServer);
 
   httpServer.listen(config.httpport, function() {
-    log.info('%s HTTP listening at http://%s:%s', config.name, config.domain, config.httpPort);
+    log.info('%s HTTP listening at http://%s:%s', config.name, config.domain, config.httpport);
   });
 
 };
