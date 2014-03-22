@@ -9,11 +9,11 @@ A simple S3-like asset server that supports buckets via subdomains, GET/PUT/HEAD
 
 ## Installing
 
-1. Run npm install after getting asset-server
-2. Copy config.local.json.example to config.local.json.
-3. Change the bucket creation key. This is used to create a new bucket.
-4. Create the directory that’s specified in config.local.json:19 (storagelocation, defaults to “./storage/“)
-5. Run it with node app.js
+- Run npm install after getting asset-server
+- Copy config.local.json.example to config.local.json.
+- Change the bucket creation key. This is used to create a new bucket.
+- Create the directory that’s specified in config.local.json:19 (storagelocation, defaults to “./storage/“)
+- Run it with node app.js
   You can also pass in the name of your environment to load a different configuration file. For example AssetServerEnv=dev node app.js would try to load config.dev.json.
 
 ## Usage
