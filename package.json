@@ -25,6 +25,6 @@
     "tldjs": "~1.3.0",
     "winston": "~0.7.2",
     "node-uuid": "~1.4.0",
-    "asset-server-client": "~0.1.46"
+    "asset-server-client": "~0.1.5"
   }
 }
