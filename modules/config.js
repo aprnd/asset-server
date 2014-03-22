@@ -1,4 +1,6 @@
 var nconf = require('nconf');
 
-nconf.file({ file: 'config.'+ (nconf.get("AssetServerEnv") || "local") +'.json' });
+var filename = 'config.'+ (nconf.env().get("AssetServerEnv") || "local") +'.json';
+
+nconf.file({ file: filename });
 module.exports = nconf.get('config');
