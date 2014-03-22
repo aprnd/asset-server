@@ -1,6 +1,6 @@
 {
   "name": "asset-server",
-  "version": "0.1.48",
+  "version": "0.1.5",
   "description": "A simple S3-like asset server that supports buckets via subdomains, GET/PUT/HEAD/DEL requests, storing files in the local filesystem.",
   "author": {
     "name": "Applied Research and Development",
