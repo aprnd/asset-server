@@ -1,0 +1,20 @@
+{
+  "config": {
+    "httpport": 5604,
+    "httpsport": 5614,
+    "name": "Local asset-server",
+    "mongodb": "mongodb://localhost/assetserver",
+    "reservedsubdomains": ["local", "localhost", "test", "error", "www", "www2", "www3", "www4", "images", "img", "imgs", "cdn", "dev", "api", "mail", "daemon", "install", "settings", "setup", "root", "admin", "svn", "git", "hg", "mailman", "email", "ns", "logout", "login", "signup", "about", "info", "content", "static", "cnt"],
+    "domain": "local.asset-server.com",
+    "ssl": {
+      "keyFile": "ssl/key.key",
+      "certFile": "ssl/key.crt"
+    },
+    "bucketkey": "SomeReallyPrivateBucketCreationKey",
+    "throttle": {
+      "burst": 10000,
+      "rate": 5000
+    },
+    "storagelocation": "./storage/"
+  }
+}
