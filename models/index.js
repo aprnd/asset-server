@@ -4,16 +4,24 @@ module.exports.init = function(mongoose, Schema){
 
   fs.readdir('./models/schemas/', function(err, files) {
 
-    var fn = 0;
-    var models = {};
+    if(!err && files.length > 0) {
 
-    for(fn in files) {
+      var fn = 0;
+      var models = {};
 
-      var nfn = files[fn].replace('.js', '');
-      var path_fn = './schemas/' + nfn;
-      var exported_model = require(path_fn);
-      models[nfn] = mongoose.model(nfn, exported_model(mongoose, Schema));
+      for(fn in files) {
 
+        var nfn = files[fn].replace('.js', '');
+        var path_fn = './schemas/' + nfn;
+        var exported_model = require(path_fn);
+        models[nfn] = mongoose.model(nfn, exported_model(mongoose, Schema));
+
+      }
+
+    }
+    else {
+      console.log('No schemas found in models/schemas/');
+      process.exit(1);
     }
 
   });
