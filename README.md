@@ -45,6 +45,18 @@ Clone source to download.
 - If you wish, change `storagelocation`, line 19. This is the directory files are stored in.
 - Run app.js to start the server.
 
+### Create a bucket
+
+To create a bucket, send a POST request to /bucket with the following headers:
+
+```
+"name": "Your Bucket's Name",
+"subdomain": "subdomain",
+"bucketkey": "yourbucketkey"
+```
+
+The body returned should contain JSON with your API key and secret that you can use to access the bucket.
+
 ### Testing with client module & app
 
 #### asset-server-client
