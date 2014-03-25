@@ -1,36 +1,69 @@
-# Asset-server
+# Asset-Server
 
-A simple S3-like asset server that supports buckets via subdomains, GET/PUT/HEAD/DEL requests, storing files in the local filesystem. For ease and clarity of code, it does not support fetching ranges from files, just the entire contents. It does support versioning files (http://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). Asset-server was built as an image host for a project that needed a S3-like, quick host that could be rolled into a package to be hosted onsite, but obviously you can store any sort of files in it.
+## Lightweight, Amazon S3-like, RESTful asset server for networked applications.
 
-You can try the desktop uploader to upload files: https://github.com/aprnd/asset-server-desktop
+Asset-Server was built as an image host for a project that needed a S3-like, quick and reliable public file host that could be rolled into a package to be hosted onsite in some use cases, and being replaced by Amazon S3 in others. Obviously you can store any sort of files in it. AS is meant to act as a public-facing server that you can store both static (like website, marketing, e-mail and other assets that might get updated but need the same URL) and user-generated/uploaded content in. Runs with the help of Node.JS, Restify and MongoDB.
+
+## Download
+
+Clone source to download.
 
 ## Requirements
 
 - Node.JS >= 0.10.21
 - MongoDB
 
-## Installing
+## Features:
 
-- Run npm install after getting asset-server
-- Copy config.local.json.example to config.local.json.
-- Change the bucket creation key. This is used to create a new bucket.
-- Create the directory that’s specified in config.local.json:19 (storagelocation, defaults to “./storage/“)
-- Run it with node app.js
-  You can also pass in the name of your environment to load a different configuration file. For example AssetServerEnv=dev node app.js would try to load config.dev.json.
+- RESTful interface for direct blob management (GET/PUT/HEAD/DELETE /folder/file.ext)
+- Subdomain buckets, ie. bucketname.asset-server.com.
+- Metadata stored in MongoDB.
+- Content transfer verification via MD5 hashes.
+- SSL support.
+- Automatic file versioning; just rewrite a file and the old one is archived.
+- API access and secret keys for verification in S3-like fashion.
+- Files are streamed direct to disk instead of being buffered in memory.
 
-## Usage
+## Asset-Server does not support:
 
-You can use S3-like requests to PUT objects through asset-server into mongodb. Files are stored on the filesystem in a folder specified in your config file. Authorization strings are constructed like S3 requests, but this server has not been tested with third-party library like Knox. You can use asset-server-client (https://github.com/aprnd/asset-server-client or npm install asset-server-client) as a client module in your project.
+- File processing like image cropping, resizing, etc. Do that before uploading.
+- Fetching file ranges. It is not meant as a streaming media repository.
+- ACL (Access Control Lists). It is meant as a public-facing server and private files are not supported.
 
-Node.js module:
-https://github.com/aprnd/asset-server-client
+## Asset-Server will, in the future..
 
-Desktop client:
-https://github.com/aprnd/asset-server-desktop
+- Have a more thorough bucket API, so you can manage your bucket through REST.
+- Support more metadata storage options than MongoDB; namely Redis.
 
-### Supported headers:
+# Installing
 
-- Date
-- Content-MD5
-- Content-Length
-- Content-Type
+## Steps
+
+- Clone from source.
+- Run `npm install`.
+- Decide on an environment name in the environment variable `AssetServerEnv`. IF you're running a local instance, `local` is a good bet.
+- Copy config.local.json.example to config.yourenv.json.
+- Change the bucket creation key (`bucketkey`, line 14). This is used to create new buckets to upload to.
+- If you wish, change `storagelocation`, line 19. This is the directory files are stored in.
+- Run app.js to start the server.
+
+## Testing
+
+### asset-server-client
+Link: https://github.com/aprnd/asset-server-client
+
+Node.js client module to interact with a bucket. Includes test command-line scripts.
+
+### asset-server-desktop
+Link: https://github.com/aprnd/asset-server-desktop
+
+Alpha desktop client to upload files to an asset-server instance. Built on top of node-webkit.
+
+![alt text](http://tester.asset-server.com/asset-server-desktop-a.png  "Screenshot")
+
+## Author
+
+Juho Hietala
+Applied Research & Development
+E-mail: juho.hietala@aprnd.com
+Twitter: @appliedrnd
