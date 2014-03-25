@@ -63,7 +63,7 @@ To create a bucket, send a POST request to /bucket with the following headers:
 "bucketkey": "yourbucketkey"
 ```
 
-The body returned should contain JSON with your API key and secret that you can use to access the bucket.
+The response body should contain JSON with your API key and secret that you can use to access the bucket.
 
 ### Testing with client module & app
 
