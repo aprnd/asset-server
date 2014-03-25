@@ -46,6 +46,7 @@ Clone source to download.
 #### Configuration
 
 - Copy config.local.json.example to config.yourenv.json.
+- Change the hostname (`domain`, line 8). `*.local.asset-server.com` always points to 127.0.0.1 from DNS, so you can use that for local testing.
 - Change the bucket creation key (`bucketkey`, line 14). This is used to create new buckets to upload to.
 - If you wish, change `storagelocation`, line 19. This is the directory files are stored in. Make sure the directory exists and is writable by the user running the server.
 
