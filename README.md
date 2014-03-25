@@ -20,7 +20,13 @@ You can try the desktop uploader to upload files: https://github.com/aprnd/asset
 
 ## Usage
 
-You can use S3-like requests to PUT objects through asset-server into mongodb. Files are stored on the filesystem in a folder specified in your config file. Authorization strings are constructed like S3 requests, but this server has not been tested with third-party library like Knox. You can use asset-server-client (https://github.com/aprnd/asset-server-client or npm install asset-server-client) as a client module in your project. It includes working examples of how to use the module.
+You can use S3-like requests to PUT objects through asset-server into mongodb. Files are stored on the filesystem in a folder specified in your config file. Authorization strings are constructed like S3 requests, but this server has not been tested with third-party library like Knox. You can use asset-server-client (https://github.com/aprnd/asset-server-client or npm install asset-server-client) as a client module in your project.
+
+Node.js module:
+https://github.com/aprnd/asset-server-client
+
+Desktop client:
+https://github.com/aprnd/asset-server-desktop
 
 ### Supported headers:
 
