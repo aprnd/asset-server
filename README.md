@@ -1,6 +1,4 @@
-# Asset-Server
-
-## Lightweight, Amazon S3-like, RESTful asset server for networked applications.
+# Asset-Server: Lightweight, Amazon S3-like, RESTful asset server for networked applications.
 
 Asset-Server was built as an image host for a project that needed a S3-like, quick and reliable public file host that could be rolled into a package to be hosted onsite in some use cases, and being replaced by Amazon S3 in others. Obviously you can store any sort of files in it. AS is meant to act as a public-facing server that you can store both static (like website, marketing, e-mail and other assets that might get updated but need the same URL) and user-generated/uploaded content in. Runs with the help of Node.JS, Restify and MongoDB.
 
