@@ -37,7 +37,7 @@ Clone source to download.
 
 ## Installing
 
-- Clone from source.
+- Clone from source or install through npm.
 - Run `npm install`.
 - Decide on an environment name in the environment variable `AssetServerEnv`. If you're running a local instance, `local` is a good bet.
 
