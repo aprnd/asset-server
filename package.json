@@ -30,4 +30,5 @@
     "winston": "~0.7.2",
     "node-uuid": "~1.4.1",
     "asset-server-client": "~0.1.59"
+  }
 }
