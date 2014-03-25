@@ -45,7 +45,7 @@ Clone source to download.
 - If you wish, change `storagelocation`, line 19. This is the directory files are stored in.
 - Run app.js to start the server.
 
-### Testing
+### Testing with client module & app
 
 #### asset-server-client
 Link: https://github.com/aprnd/asset-server-client
