@@ -2,6 +2,8 @@
 
 A simple S3-like asset server that supports buckets via subdomains, GET/PUT/HEAD/DEL requests, storing files in the local filesystem. For ease and clarity of code, it does not support fetching ranges from files, just the entire contents. It does support versioning files (http://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). Asset-server was built as an image host for a project that needed a S3-like, quick host that could be rolled into a package to be hosted onsite, but obviously you can store any sort of files in it.
 
+You can try the desktop uploader to upload files: https://github.com/aprnd/asset-server-desktop
+
 ## Requirements
 
 - Node.JS >= 0.10.21
