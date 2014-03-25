@@ -50,7 +50,7 @@ Clone source to download.
 
 #### Running
 
-Run app.js to start the server. If you want to set the environment name on the fly, you can run `AssetServerEnv=yourenv node app.js".
+Run app.js to start the server. If you want to set the environment name on the fly, you can run `AssetServerEnv=yourenv node app.js`.
 
 ### Create a bucket
 
