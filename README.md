@@ -2,6 +2,8 @@
 
 Asset-Server was built as an image host for a project that needed a S3-like, quick and reliable public file host that could be rolled into a package to be hosted onsite in some use cases, and being replaced by Amazon S3 in others. Obviously you can store any sort of files in it. AS is meant to act as a public-facing server that you can store both static (like website, marketing, e-mail and other assets that might get updated but need the same URL) and user-generated/uploaded content in. Runs with the help of Node.JS, Restify and MongoDB.
 
+Tested with OSX 10.9.2 and Debian GNU/Linux.
+
 ### Download
 
 Clone source to download.
@@ -39,11 +41,17 @@ Clone source to download.
 
 - Clone from source.
 - Run `npm install`.
-- Decide on an environment name in the environment variable `AssetServerEnv`. IF you're running a local instance, `local` is a good bet.
+- Decide on an environment name in the environment variable `AssetServerEnv`. If you're running a local instance, `local` is a good bet.
+
+#### Configuration
+
 - Copy config.local.json.example to config.yourenv.json.
 - Change the bucket creation key (`bucketkey`, line 14). This is used to create new buckets to upload to.
-- If you wish, change `storagelocation`, line 19. This is the directory files are stored in.
-- Run app.js to start the server.
+- If you wish, change `storagelocation`, line 19. This is the directory files are stored in. Make sure the directory exists and is writable by the user running the server.
+
+#### Running
+
+Run app.js to start the server. If you want to set the environment name on the fly, you can run `AssetServerEnv=yourenv node app.js".
 
 ### Create a bucket
 
