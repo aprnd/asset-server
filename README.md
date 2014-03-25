@@ -59,12 +59,12 @@ Alpha desktop client to upload files to an asset-server instance. Built on top o
 
 ![alt text](http://tester.asset-server.com/asset-server-desktop-a.png  "Screenshot")
 
-## Credits
+## Credits and contributions
 
-Juho Hietala
+Contributions are welcome! Please note that the point is to keep the server lean and light, so besides the features listed above, there should be a very good reason to have the server do something else.
 
-
+#### Juho Hietala  
 Applied Research & Development
 
-E-mail: juho.hietala@aprnd.com
+E-mail: juho.hietala@aprnd.com  
 Twitter: http://www.twitter.com/appliedrnd
