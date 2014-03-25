@@ -73,7 +73,7 @@ exports.requireAuthorization = function requireAuthorization(req, res, next) {
 
   var assetRequest = new AssetRequest(req.url, req.headers, req.method, {
     domain: req.bucket.subdomain + '.' + config.domain,
-    port: 5604,
+    port: 5604, // this request doesn't care about the port number as it's just used to generate a header to compare with
     bucket: req.bucket.subdomain,
     apiKey: req.bucket.apiKey,
     apiSecret: req.bucket.apiSecret,
