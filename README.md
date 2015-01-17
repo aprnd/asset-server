@@ -4,6 +4,13 @@ Asset-Server was built as an image host for a project that needed a S3-like, qui
 
 Tested with OSX 10.9.2 and Debian GNU/Linux.
 
+### Changes
+
+- 0.1.59 (Jan 17 2015):
+```
+  - Etag support
+```
+
 ### Download
 
 Clone source to download.
@@ -82,8 +89,8 @@ Alpha desktop client to upload files to an asset-server instance. Built on top o
 
 Contributions are welcome! Please note that the point is to keep the server lean and light, so besides the features listed above, there should be a very good reason to have the server do something else.
 
-#### Juho Hietala  
+#### Juho Hietala
 Applied Research & Development
 
-E-mail: juho.hietala@aprnd.com  
+E-mail: juho.hietala@aprnd.com
 Twitter: http://www.twitter.com/appliedrnd
