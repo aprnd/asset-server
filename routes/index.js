@@ -48,12 +48,9 @@ exports.get = function get(req, res) {
   models.Blob.findOne(query, {}, { sort: { 'created' : -1 } }, function(err, blob) {
     if(!err && blob) {
 
-      res.writeHead(200, {
-        'Content-Type': blob.contentType,
-        'Content-Length': blob.contentLength,
-        'Last-Modified': blob.created
-      });
-
+      res.header('Content-Type', blob.contentType);
+      res.header('Content-Length', blob.contentLength);
+      res.header('Last-Modified', blob.created);
 
       // Create a read stream for the blob
       var file = fs.createReadStream(getBucketDirectoryName(req.bucket)+blob.fileName);
