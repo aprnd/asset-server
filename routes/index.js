@@ -52,6 +52,9 @@ exports.get = function get(req, res) {
       res.header('Content-Length', blob.contentLength);
       res.header('Last-Modified', blob.created);
 
+      // Enable restify cache
+      res.cache();
+
       // Create a read stream for the blob
       var file = fs.createReadStream(getBucketDirectoryName(req.bucket)+blob.fileName);
 
