@@ -132,6 +132,7 @@ exports.put = function put(req, res) {
 
   }
   else {
+    log.error('Content-Type and Content-Length headers are not set.');
     res.send(500, 'Content-Type and Content-Length headers are not set.');
   }
 
