@@ -69,6 +69,7 @@ exports.get = function get(req, res) {
       res.send(404, 'Not Found');
     }
     else {
+      log.error(err);
       res.send(500, err);
     }
   });
