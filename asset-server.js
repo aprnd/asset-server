@@ -59,12 +59,13 @@ exports.init = function() {
       ip: true
     }));
 
+    app.use(restify.conditionalRequest());
     app.use(addConfigurationToRequest);
 
     /**
-     * 
+     *
      *  Routes
-     *  
+     *
      */
 
     // POST route to create buckets

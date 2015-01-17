@@ -47,13 +47,26 @@ exports.get = function get(req, res) {
   // Find the blob and return the latest one with the requested path
   models.Blob.findOne(query, {}, { sort: { 'created' : -1 } }, function(err, blob) {
     if(!err && blob) {
+
       res.writeHead(200, {
         'Content-Type': blob.contentType,
-        'Content-Length': blob.contentLength
+        'Content-Length': blob.contentLength,
+        'Last-Modified': blob.created
       });
+
+
+      // Create a read stream for the blob
       var file = fs.createReadStream(getBucketDirectoryName(req.bucket)+blob.fileName);
+
+      // Set an etag for cache
+      res.etag = blob.contentMd5;
+
+      // Log the request
       log.info('GET', blob._id, requestFile, { ip: req.requestIp });
+
+      // Pipe the file to the user
       file.pipe(res);
+
     }
     else if(!err && !blob) {
       res.send(404, 'Not Found');
@@ -204,7 +217,7 @@ exports.bucket.post = function bucketPost (req, res) {
   var subdomain = slug(req.header('subdomain'));
 
   if(name && subdomain && config.reservedsubdomains.indexOf(subdomain) === -1) {
-   
+
     var hash = crypto.createHash('sha1').update(name + Date.now()).digest("hex");
     var apiKey = crypto.createHash('sha1').update(name + hash + Date.now()).digest("hex");
     var apiSecret = crypto.createHash('sha1').update(name + hash + apiKey + Date.now()).digest("hex");

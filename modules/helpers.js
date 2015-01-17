@@ -13,7 +13,7 @@ exports.checkDomain = function checkDomain(req, res, next) {
   if(tld.isValid(req.headers.host)) {
 
     // set cache
-    res.cache("_public_", { maxAge: 3600 });
+    res.cache("_public_", { "max-age": 604800 });
 
     var subdomain = tld.getSubdomain(req.headers.host).split('.')[0]; // split in case we're serving subdomain.local or subdomain.dev etc. pages
     
