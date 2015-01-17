@@ -6,7 +6,7 @@ Tested with OSX 10.9.2 and Debian GNU/Linux.
 
 ### Changes
 
-- 0.1.59 (Jan 17 2015):
+- 0.1.60 (Jan 17 2015):
 ```
   - Etag support
 ```
