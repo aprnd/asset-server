@@ -1,6 +1,6 @@
 {
   "name": "asset-server",
-  "version": "0.1.60",
+  "version": "0.1.61",
   "description": "A lean RESTful Amazon S3-like asset server that supports subdomain buckets, content hashing and versioning, streaming files directly to the the local filesystem.",
   "author": {
     "name": "Applied Research and Development",

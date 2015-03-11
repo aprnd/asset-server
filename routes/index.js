@@ -51,6 +51,7 @@ exports.get = function get(req, res) {
       res.header('Content-Type', blob.contentType);
       res.header('Content-Length', blob.contentLength);
       res.header('Last-Modified', blob.created);
+      res.header('Accept-Ranges', 'none');
 
       // Enable restify cache
       res.cache();
