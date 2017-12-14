@@ -37,11 +37,6 @@ Clone source to download.
 - Fetching file ranges. It is not meant as a streaming media repository.
 - ACL (Access Control Lists). It is meant as a public-facing server and private files are not supported.
 
-### Asset-Server will, in the future..
-
-- Have a more thorough bucket API, so you can manage your bucket through REST.
-- Support more metadata storage options than MongoDB; namely Redis.
-
 ## Installing
 
 - Clone from source or install through npm.
